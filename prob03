@@ -1,0 +1,18 @@
+#include <iostream>
+#include <math.h>
+#include <stdio.h>
+using namespace std;
+
+double dist(double x[3][2]) {
+	double m = pow(pow(x[0][0]-x[0][1], 2) + pow(x[1][0]-x[1][1], 2) + pow(x[2][0]-x[2][1], 2) , 0.5);
+    return m;
+}
+
+int main() {
+    int n; cin >> n;
+    for(int i=0; i<n; i++) {
+        double x[3][2];
+        scanf("%d,%d,%d %d,%d,%d", x[0][0], x[1][0], x[2][0], x[0][1], x[1][1], x[2][1]);
+        cout << dist(x);
+    }
+}
