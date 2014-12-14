@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+
+long long int comb(int a, int b) {
+    long long int curr=1;
+    if(b>a) return 0;
+    for(int i=1; i<=b; i++) {
+        curr*=(a-i+1);
+        curr/=i;
+    }
+    return curr;
+}
+
+int arr[100];
+int main(int argc, char** argv) {
+    int n; cin >> n;
+    for(int i=0; i<n; i++) {
+        int a, b; cin >> a >> b;
+        arr[i] = comb(a,b);
+    }
+    for(int i=0; i<n; i++)
+        cout << arr[i] << endl;
+}
