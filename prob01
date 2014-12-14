@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+long int abs(long int a) {if(a>0) return a; else return -a;}
+
+string f(long int a, int b) {
+    int i=0;
+    a = abs(a);
+    while(a && a%10 != b) {i++;a/=10;}
+    if(!a) return "Not Found";
+    if(i==0) return "Units";
+    else if(i==1) return "Tens";
+    else if(i==2) return "Hundreds";
+    else if(i==3) return "Thousands";
+    else if(i==4) return "Ten Thousands";
+    else if(i==5) return "Lakh";
+    else if(i==6) return "Ten Lakhs";
+    else if(i==7) return "Crore";
+    else if(i==8) return "Ten Crore";
+    else if(i==9) return "Billion";
+    else return "Not Found";
+}
+
+string arr[200];
+int main(int argc, char** argv) {
+    int n;
+    cin >> n;
+    for(int i=0; i<n; i++) {
+        long int a; int b;
+        cin >> a >> b;
+        arr[i] = f(a,b);
+    }
+    for(int i=0; i<n; i++)
+        cout << arr[i] << endl;
+}
